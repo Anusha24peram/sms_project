@@ -1,0 +1,31 @@
+{% extends "students/base.html" %}
+{% block content %}
+<h2>{{ student.first_name }} {{ student.last_name }}</h2>
+
+<div class="row">
+  <div class="col-md-3">
+    {% if student.photo %}
+      <img src="{{ student.photo.url }}" class="img-fluid rounded" alt="photo">
+    {% else %}
+      <div class="border rounded p-5 bg-light">No Photo</div>
+    {% endif %}
+  </div>
+  <div class="col-md-9">
+    <p><strong>Roll:</strong> {{ student.roll_number }}</p>
+    <p><strong>Email:</strong> {{ student.email }}</p>
+    <p><strong>DOB:</strong> {{ student.dob }}</p>
+    <p><strong>Gender:</strong> {{ student.get_gender_display }}</p>
+
+    <h5>Enrollments</h5>
+    <ul>
+      {% for en in student.enrollments.all %}
+        <li>{{ en.course.name }} — Marks: {{ en.marks }}</li>
+      {% empty %}
+        <li>No enrollments yet.</li>
+      {% endfor %}
+    </ul>
+
+    <a href="{% url 'students:student-edit' student.pk %}" class="btn btn-primary">Edit</a>
+  </div>
+</div>
+{% endblock %}

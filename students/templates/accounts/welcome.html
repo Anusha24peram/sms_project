@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Welcome</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+    <style>
+        .welcome-container {
+            text-align: center;
+            margin-top: 100px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: bold;
+            animation: slideDown 1.2s ease;
+        }
+
+        p {
+            font-size: 20px;
+            color: #333;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .btn-hero {
+            margin-top: 25px;
+            font-size: 20px;
+            padding: 12px 30px;
+            border-radius: 50px;
+            animation: fadeIn 2.5s ease;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="welcome-container">
+    <h1>🎓 Welcome to Student Management System</h1>
+    <p>Manage students, courses, and results effortlessly.</p>
+
+    <a href="{% url 'accounts:login' %}" class="btn btn-primary btn-hero">
+        🚀 Get Started
+    </a>
+</div>
+
+</body>
+</html>

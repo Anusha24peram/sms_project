@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}Student Management{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- AOS Animations -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/static/css/styles.css">
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark mb-4 shadow-sm">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="{% url 'students:student-list' %}" data-aos="fade-down">📘 SMS</a>
+
+        <div>
+          <a class="btn btn-light btn-sm" href="{% url 'students:student-add' %}" data-aos="fade-down" data-aos-delay="200">
+            ➕ Add Student
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container fade-in" data-aos="fade-up">
+      {% block content %}{% endblock %}
+    </div>
+
+    <!-- Bootstrap JS + AOS Script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <script>
+      AOS.init({
+        duration: 900,
+        once: true
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+/* Background gradient */
+body {
+    background: linear-gradient(135deg, #dfe9f3 0%, #ffffff 100%);
+    min-height: 100vh;
+    animation: fadeBg 2s ease-in-out;
+}
+
+@keyframes fadeBg {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Card hover effect */
+.table tbody tr {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.table tbody tr:hover {
+    transform: scale(1.02);
+    box-shadow: rgba(0, 0, 0, 0.15) 0 4px 20px;
+}
+
+/* Button hover animation */
+.btn {
+    transition: transform 0.2s ease-in-out;
+}
+.btn:hover {
+    transform: scale(1.05);
+}
+
+/* Fade-in animation */
+.fade-in {
+    animation: fadeIn 0.9s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Navbar styling */
+.navbar {
+    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 120, 0.65);
+}
+
+/* Centered card-style form */
+.form-container {
+    background: #ffffffcc;
+    backdrop-filter: blur(6px);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: rgba(0,0,0,0.1) 0 4px 15px;
+}

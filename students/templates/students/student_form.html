@@ -1,0 +1,17 @@
+{% extends "students/base.html" %}
+{% block content %}
+<h2 class="fw-bold mb-3" data-aos="fade-right">
+  {% if form.instance.pk %}Edit Student{% else %}Add Student{% endif %}
+</h2>
+
+<div class="form-container" data-aos="fade-up">
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button class="btn btn-success" type="submit">Save</button>
+    <a href="{% url 'students:student-list' %}" class="btn btn-secondary">Cancel</a>
+  </form>
+</div>
+
+{% endblock %}
